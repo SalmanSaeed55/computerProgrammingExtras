@@ -8,7 +8,6 @@ def die_roll():
 
 def addition_game():
     guess = random_number()
-    yes_inps = ["yes", "y", "yeah", "yep", "yup", "ye"]
     repeat = True
     crashed = False
     addition_total = 0
@@ -20,7 +19,7 @@ def addition_game():
 
         new_num = input("Do you want to roll the die?\t")
         try:
-            if new_num.lower() in yes_inps:
+            if new_num.lower() in ["", "yes", "y", "yeah", "yep", "yup", "ye", "yh"]:
                 addition_total += die_roll()
                 times_added += 1
             else:
@@ -37,10 +36,8 @@ def addition_game():
 
         if distance_guess == 0:
             print(f"Congratulations! You won with 0 away from {guess}!\nYou won with {times_added} dice rolled!")
-        elif 0 > distance_guess > -5:
-            print(f"You were {abs(distance_guess)} above {guess}!\nYou won with {times_added} dice rolled!")
-        elif 0 < distance_guess < 5:
-            print(f"You were {distance_guess} below {guess}!\nYou won with {times_added} dice rolled!")
+        elif -5 <= distance_guess <= 5:
+            print(f"You were {abs(distance_guess)} away from {guess}!\nYou won with {times_added} dice rolled!")
         else:
             print("Invalid try - try again")
 
