@@ -1,2 +1,2 @@
-Total wins = 7
-Total points = 55
+Total wins = 9
+Total points = 95
